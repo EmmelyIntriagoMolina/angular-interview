@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+    overscroll-behavior: contain;
+    position: relative;
+    margin: 0; 
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: small !important;
+    background-color: #f4f6f9;
+}
+mat-card {
+    background-color: white !important;
+}
+.modal-backdrop {
+    width: 100% !important;
+    height: 100% !important;
+}
+.disabled-input {
+    background-color: rgb(237, 237, 237);
+}
+.button-cancelar-class{
+    padding: 15px 12px;
+    cursor: pointer;
+    color: #fff;
+    border: 0 none;
+    color: black;
+    background: #e2e3e4fd;
+    border-radius: 3px;
+
+    &:hover {
+      transition: all 150ms linear; 
+      opacity: .85;
+    }
+  
+    &:active {
+      transition: all 150ms linear;
+      opacity: .75;
+    }
+  
+    &:focus {
+      outline: 1px dotted #959595;
+      outline-offset: -4px;
+    }
+}
+.button-agregar-class{
+  padding: 15px 12px;
+  cursor: pointer;
+  color: #fff;
+  border: 0 none;
+  color: black;
+  background: #ecda3b;
+  border-radius: 3px;
+  
+  &:hover {
+    transition: all 150ms linear; 
+    opacity: .85;
+  }
+
+  &:active {
+    transition: all 150ms linear;
+    opacity: .75;
+  }
+
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+}
+.modal-full .modal-content {
+  min-height: 90vh;
+}

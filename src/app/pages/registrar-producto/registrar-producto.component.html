@@ -1,0 +1,117 @@
+<form [formGroup]="formularioProducto">
+    <mat-card>
+        <mat-grid-list cols="1" rowHeight="50px" class="mat-card-header-class">
+            <mat-grid-tile colspan="1" style="background-color: white;">
+                <label>Formulario de Registro</label>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    <label>ID</label>
+                    <br>
+                    <input 
+                        formControlName="id" 
+                        maxlength="10"
+                        minlength="3"
+                    >
+                    @if(verificarDatoValido(
+                        'id', formularioProducto)
+                    ){
+                        <span> {{obtenerError('id', formularioProducto)}} </span>
+                    }
+                </div>
+                <div class="col-lg-6">
+                    <label>Nombre</label>
+                    <br>
+                    <input 
+                        formControlName="name" 
+                        maxlength="100"
+                        minlength="5"
+                    >
+                    @if(verificarDatoValido(
+                        'name', 
+                        formularioProducto)
+                    ){
+                        <span> {{obtenerError('name', formularioProducto)}} </span>
+                    }
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <label>Descripción</label>
+                    <br>
+                    <input 
+                        formControlName="description" 
+                        matInput
+                        maxlength="200"
+                        minlength="10"
+                    >
+                    @if(verificarDatoValido(
+                        'description', 
+                        formularioProducto)
+                    ){
+                        <span> {{obtenerError('description', formularioProducto)}} </span>
+                    }
+                </div>
+                <div class="col-lg-6">
+                    <label>Logo</label>
+                    <br>
+                    <input formControlName="logo">
+                    @if(verificarDatoValido(
+                        'logo', 
+                        formularioProducto)
+                    ){
+                        <span> {{obtenerError('logo', formularioProducto)}} </span>
+                    }
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <label>Fecha Liberaciónn</label>
+                    <br>
+                    <input 
+                        formControlName="date_release" 
+                        type="date"
+                        (change)="initDateRevision()"
+                    >
+                    @if(formularioProducto.getError('dateReleaseInvalid')
+                    ){
+                        <span> Fecha de Liberación no es correcta </span>
+                    }
+                </div>
+                <div class="col-lg-6">
+                    <label>Fecha Revisiónn</label>
+                    <br>
+                    <input 
+                        class="disabled-input"
+                        formControlName="date_revision" 
+                        type="date"
+                        [readonly]="true"
+                    >
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <br><div>
+                <button 
+                    class="mat-50 form-button color-button" 
+                    mat-raised-button 
+                    (click)="reiniciarFormulario()"
+                >
+                    <label>Reiniciar</label> 
+                </button>
+                <button 
+                    class="mat-50 form-button" 
+                    mat-raised-button 
+                    color="accent"
+                    (click)="registrarProducto()"
+                    [disabled]="formularioProducto.invalid"
+                >
+                    <label>Enviar</label> 
+                </button>
+            </div><br>
+        </mat-card-footer>
+    </mat-card>
+</form>
